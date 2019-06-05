@@ -44,7 +44,7 @@ def translate_from_dna_to_rna(dna):
     with open(dna) as d, open(rna, 'a') as r:
         for line in d:
             if line.startswith('>'):
-                continue
+                r.write('>\n')
             rna_line = line.replace('T', 'U')
             r.write(rna_line)
 
@@ -52,45 +52,68 @@ def translate_from_dna_to_rna(dna):
 
 
 def count_nucleotides(dna):
-    num_of_nucleotides = 'files/num_of_nucleotides.json'
+    num_of_nucleotides_file = 'files/num_of_nucleotides.json'
 
     with open(dna) as d:
-        nucleotides_stat = {'A': 0, 'C': 0, 'G': 0, 'T': 0}
+        lst_of_nucleotides_stat = []
+        nucleotides_stat = {}
+        nucleotides = ('A', 'C', 'G', 'T')
         for line in d:
-            if line.startswith('>'):
+            if line.startswith('>') and not nucleotides_stat:
+                continue
+            if line.startswith('>') and nucleotides_stat:
+                lst_of_nucleotides_stat.append(nucleotides_stat)
+                nucleotides_stat = {}
                 continue
             for key in Counter(line):
-                if key not in nucleotides_stat:
+                if key not in nucleotides:
                     continue
-                nucleotides_stat[key] += Counter(line)[key]
+                if key in nucleotides_stat:
+                    nucleotides_stat[key] += Counter(line)[key]
+                else:
+                    nucleotides_stat[key] = Counter(line)[key]
+        lst_of_nucleotides_stat.append(nucleotides_stat)
 
-    with open(num_of_nucleotides, 'w') as n:
-        json.dump(nucleotides_stat, n)
+    with open(num_of_nucleotides_file, 'a') as n:
+        for stat in lst_of_nucleotides_stat:
+            json.dump(stat, n)
+            n.write('\n')
 
-    return num_of_nucleotides
+    return num_of_nucleotides_file
 
 
 def get_stat_diagram(stat_file):
-    stat_diagram = 'files/stat_nucleotides_diagram.png'
-    with open(stat_file) as s:
-        statistics = json.load(s)
+    stat_diagram_file = 'files/stat_nucleotides_diagram.png'
+    with open('files/num_of_nucleotides.json') as s:
+        statistics = []
+        for line in s:
+            statistics.append(json.loads(line))
 
-    names = list(statistics.keys())
-    values = list(statistics.values())
+    names1 = list(statistics[0].keys())
+    values1 = list(statistics[0].values())
 
-    fig, axs = plt.subplots()
-    axs.bar(names, values)
-    axs.set_xlabel('nucleotide')
-    axs.yaxis.set_label_position('left')
-    axs.set_ylabel('count')
+    fig, [axs1, axs2] = plt.subplots(1, 2)
+    axs1.bar(names1, values1)
+    axs1.set_xlabel('nucleotide')
+    axs1.yaxis.set_label_position('left')
+    axs1.set_ylabel('count')
     fig.suptitle('stat of nucleotides')
-    plt.savefig(stat_diagram)
 
-    return stat_diagram
+    names2 = list(statistics[1].keys())
+    values2 = list(statistics[1].values())
+
+    axs2.bar(names2, values2)
+    axs2.set_xlabel('nucleotide')
+    axs2.yaxis.set_label_position('left')
+    axs2.set_ylabel('count')
+
+    plt.savefig(stat_diagram_file)
+
+    return stat_diagram_file
 
 
 def translate_rna_to_protein(rna, codons):
-    protein = 'files/protein.txt'
+    protein_file = 'files/protein.txt'
 
     with open(codons) as c:
         codons_dict = {}
@@ -98,17 +121,18 @@ def translate_rna_to_protein(rna, codons):
             for i in range(0, len(line.split()), 2):
                 codons_dict[line.split()[i]] = line.split()[i + 1]
 
-    with open(rna) as r, open(protein, 'a') as p:
+    with open(rna) as r, open(protein_file, 'a') as p:
         for line in r:
             if line.startswith('>'):
-                continue
+                p.write('>\n')
             for i in range(0, len(line), 3):
                 if line[i:i+3] not in codons_dict:
                     continue
                 p.write(codons_dict[line[i:i + 3]])
+                p.write(' ')
             p.write('\n')
 
-    return protein
+    return protein_file
 
 
 def main(dna_file, codons_file):
