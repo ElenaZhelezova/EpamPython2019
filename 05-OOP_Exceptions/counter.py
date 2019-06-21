@@ -14,6 +14,7 @@ def instances_counter(cls):
     setattr(cls, 'instances_counter', 0)
 
     def __init__(self):
+        self.cls = cls
         cls.instances_counter += 1
 
     def get_created_instances(self=None):
@@ -38,7 +39,8 @@ class User:
 
 if __name__ == '__main__':
 
-    User.get_created_instances()  # 0
+    print(User.get_created_instances())  # 0
     user, _, _ = User(), User(), User()
-    user.get_created_instances()  # 3
-    user.reset_instances_counter()  # 3
+    print(user.get_created_instances())  # 3
+    print(user.reset_instances_counter())  # 3
+    print(user.get_created_instances())
