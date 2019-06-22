@@ -4,97 +4,115 @@
 	"statistics": {
 		"wine": {
 			"Gewürztraminer": {
-				"avarege_price": 26.17,
-				"min_price": 6,
-				"max_price": 197,
-				"most_common_region": "Alsace",
-				"most_common_country": "France",
-				"avarage_score": 88.56
+				"avarege_price": 24.28,
+				"min_price": 7.0,
+				"max_price": 197.0,
+				"most_common_region": "Finger Lakes",
+				"most_common_country": "US",
+				"avarage_score": 88.24
 			},
 			"Riesling": {
-				"avarege_price": 32.6,
-				"min_price": 5,
-				"max_price": 775,
+				"avarege_price": 35.58,
+				"min_price": 5.0,
+				"max_price": 775.0,
 				"most_common_region": "Finger Lakes",
 				"most_common_country": "Germany",
-				"avarage_score": 89.48
+				"avarage_score": 89.46
 			},
 			"Merlot": {
-				"avarege_price": 29.27,
-				"min_price": 4,
-				"max_price": 625,
-				"most_common_region": "Columbia Valley",
+				"avarege_price": 31.15,
+				"min_price": 4.0,
+				"max_price": 625.0,
+				"most_common_region": "Napa",
 				"most_common_country": "US",
-				"avarage_score": 87.16
+				"avarage_score": 87.41
 			},
 			"Tempranillo": {
-				"avarege_price": 31.14,
-				"min_price": 4,
-				"max_price": 600,
+				"avarege_price": 32.9,
+				"min_price": 4.0,
+				"max_price": 325.0,
 				"most_common_region": "Rioja",
 				"most_common_country": "Spain",
-				"avarage_score": 87.47
+				"avarage_score": 87.42
 			},
 			"Red Blend": {
-				"avarege_price": 36.09,
-				"min_price": 5,
-				"max_price": 500,
+				"avarege_price": 37.42,
+				"min_price": 5.0,
+				"max_price": 500.0,
 				"most_common_region": "Columbia Valley",
-				"most_common_country": "Italy",
-				"avarage_score": 88.37
+				"most_common_country": "US",
+				"avarage_score": 88.51
 			}
 		},
 		"most_expensive_wine": [
 			"Bordeaux-style Red Blend"
 		],
 		"cheapest_wine": [
-			"Chardonnay",
-			"Pinot Grigio",
-			"Merlot",
+			"White Blend",
 			"Cabernet Sauvignon",
-			"Syrah",
-			"Malbec-Syrah",
 			"Tempranillo",
-			"White Blend"
+			"Malbec-Syrah",
+			"Merlot"
 		],
 		"highest_score": [
-			"Shiraz",
-			"Chardonnay",
-			"Port",
-			"Merlot",
-			"Prugnolo Gentile",
-			"Sangiovese",
-			"Bordeaux-style Red Blend",
+			"Muscat",
 			"Portuguese Red",
-			"Red Blend",
-			"Cabernet Sauvignon",
+			"Sangiovese",
+			"Champagne Blend",
+			"Bordeaux-style Red Blend",
 			"Syrah",
-			"Chenin Blanc",
-			"Bordeaux-style White Blend",
-			"Pinot Noir",
-			"Muscadelle",
-			"Nebbiolo"
+			"Sangiovese Grosso",
+			"Prugnolo Gentile"
 		],
 		"lowest_score": [
-			"Port",
-			"Chardonnay",
-			"Prugnolo Gentile",
+			"Mencía",
+			"Gewürztraminer",
+			"Pinot Noir",
+			"Zinfandel",
+			"Sauvignon Blanc",
+			"Shiraz-Tempranillo",
 			"Merlot",
-			"Sangiovese",
-			"Bordeaux-style Red Blend",
-			"Portuguese Red",
+			"Chardonnay",
+			"Tannat",
+			"Garnacha",
+			"Verdejo",
+			"Pinot Blanc",
+			"Rosé",
+			"Malbec",
+			"Petite Sirah",
+			"White Blend",
+			"Garnacha Blanca",
 			"Cabernet Sauvignon",
-			"Syrah",
-			"Muscat",
-			"Sangiovese Grosso",
-			"Champagne Blend",
-			"Bordeaux-style White Blend"
+			"Cabernet Franc",
+			"Tempranillo",
+			"Airen",
+			"Cinsault",
+			"Red Blend",
+			"Sémillon",
+			"Sparkling Blend",
+			"Tinto del Pais",
+			"Torrontés",
+			"Sangiovese",
+			"Dolcetto",
+			"Bonarda",
+			"Barbera",
+			"Rosado",
+			"Müller-Thurgau",
+			"Albariño",
+			"Chambourcin",
+			"Viognier",
+			"Viura",
+			"Chancellor",
+			"Bordeaux-style Red Blend",
+			"Rhône-style Red Blend",
+			"Pinot Grigio",
+			"Syrah"
 		],
 		"most_expensive_country": [
-			"Switzerland"
+			"England"
 		],
 		"cheapest_country": [
-			"Egypt"
+			"Ukraine"
 		],
 		"most_rated_country": [
 			"England"
